@@ -124,6 +124,14 @@ SAVE_CONFIG
 
 --------------------------------------------
 
+
+#*# [heater_bed]
+#*# control = pid
+#*# pid_kp = 61.060
+#*# pid_ki = 0.765
+#*# pid_kd = 1218.147
+
+
 SET_VELOCITY_LIMIT VELOCITY=200
 SET_VELOCITY_LIMIT ACCEL=1500
 SET_TMC_CURRENT STEPPER=stepper_z CURRENT=1.5
