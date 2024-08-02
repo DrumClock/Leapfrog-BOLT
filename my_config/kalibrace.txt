@@ -73,6 +73,14 @@ SAVE_CONFIG
 
 " Input Shaper - IDEX calibration"
 
+~/klipper/scripts/calibrate_shaper.py /tmp/calibration_data_x1.csv -o /tmp/shaper_calibrate_x1.png
+~/klipper/scripts/calibrate_shaper.py /tmp/calibration_data_y1.csv -o /tmp/shaper_calibrate_y1.png
+
+~/klipper/scripts/calibrate_shaper.py /tmp/calibration_data_x2.csv -o /tmp/shaper_calibrate_x2.png
+~/klipper/scripts/calibrate_shaper.py /tmp/calibration_data_y2.csv -o /tmp/shaper_calibrate_y2.png
+
+---------------------------------------------------------------------
+
 ACCELEROMETER_QUERY CHIP=extruder
 ACCELEROMETER_QUERY CHIP=extruder_1
 
