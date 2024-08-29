@@ -3,6 +3,10 @@
 QUERY_ENDSTOPS
 --------------------------------------------------
 
+SET_TMC_CURRENT STEPPER=stepper_x CURRENT=0.950
+SET_TMC_CURRENT STEPPER=stepper_y CURRENT=0.950
+SET_TMC_CURRENT STEPPER=stepper_z CURRENT=0.950
+
 " test stepperů "
 STEPPER_BUZZ STEPPER=stepper_x
 STEPPER_BUZZ STEPPER=stepper_y
