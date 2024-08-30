@@ -2,6 +2,8 @@
 " test endstop "
 QUERY_ENDSTOPS
 --------------------------------------------------
+SET_VELOCITY_LIMIT VELOCITY=300
+SET_VELOCITY_LIMIT ACCEL=3000
 
 SET_TMC_CURRENT STEPPER=stepper_x CURRENT=0.950
 SET_TMC_CURRENT STEPPER=stepper_y CURRENT=0.950
@@ -136,7 +138,6 @@ SAVE_CONFIG
 
 --------------------------------------------
 
-
 #*# [heater_bed]
 #*# control = pid
 #*# pid_kp = 61.060
@@ -144,10 +145,3 @@ SAVE_CONFIG
 #*# pid_kd = 1218.147
 
 
-SET_VELOCITY_LIMIT VELOCITY=200
-SET_VELOCITY_LIMIT ACCEL=1500
-SET_TMC_CURRENT STEPPER=stepper_z CURRENT=1.5
-
-
-SET_TMC_CURRENT STEPPER=stepper_x CURRENT=0.800
-SET_TMC_CURRENT STEPPER=stepper_y CURRENT=0.800
