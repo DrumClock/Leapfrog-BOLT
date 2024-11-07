@@ -17,16 +17,29 @@ STEPPER_BUZZ STEPPER=extruder
 --------------------------------------------------
 
 " kalibrace 'rotation_distance' pro extruder "
-- označit strunu od konce extruderu 100 mm
-- vytlačit 50 mm 'requested_extrude_distance¨'
 
- M109 S220 
- G91 
- G1 E50 F60
- 
-- změřit kolik se vytlačilo ke značce 100 mm od konce extruderu 'actual_extrude_distance'
-- vypčitat novou hodnotu 'rotation_distance'
- = previous_rotation_distance * ( actual_extrude_distance / requested_extrude_distance) 
+1. Pomocí značky umístěte značku na vlákno přibližně 100 mm od vstupu do těla extrudéru.
+   Poté pomocí digitálních posuvných měřítek změřte skutečnou vzdálenost této značky tak přesně, jak jen lze.
+   Poznamenejte si to jako <initial_mark_distance>.
+
+2. Vytlačte 50 mm vlákna pomocí následující sekvence příkazů:
+    
+   G91 
+   G1 E50 F60
+
+   Poznamenejte si 50 mm jako <požadovaná_vzdálenost_vysunutí>. 
+   Počkejte, až extrudér dokončí pohyb (bude to trvat asi 50 sekund).
+   Pro tento test je důležité použít pomalou rychlost vytlačování, protože vyšší rychlost může způsobit vysoký tlak v extrudéru,
+   který zkreslí výsledky. (Pro tento test nepoužívejte „tlačítko vysunutí“ na grafických rozhraních, protože se vysunují vysokou rychlostí.)
+   
+3. Pomocí digitálních posuvných měřítek změřte novou vzdálenost mezi tělem extrudéru a značkou na filamentu.
+   Poznamenejte si to jako <následná_značka_vzdálenost>.
+   Poté vypočítejte: aktuální_vysunutí_vzdálenosti = <počáteční_vzdálenost_značky> - <následná_vzdálenost_značky>
+
+4. Vypočítejte rotační_vzdálenost jako:
+   rotation_distance = <předchozí_rotační_vzdálenost> * <skutečná_vzdálenost_vysunutí> /    <požadovaná_vzdálenost_vysunutí>
+   Zaokrouhlete novou rotační_vzdálenost na tři desetinná místa.
+  
 --------------------------------------------------
 
 ===========  printer.cfg ==============
