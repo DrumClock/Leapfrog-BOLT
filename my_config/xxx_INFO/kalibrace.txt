@@ -23,7 +23,8 @@ STEPPER_BUZZ STEPPER=extruder
    Poznamenejte si to jako <initial_mark_distance>.
 
 2. Vytlačte 50 mm vlákna pomocí následující sekvence příkazů:
-    
+
+   ACTIVATE_EXTRUDER EXTRUDER=extruder 
    G91 
    G1 E50 F60
 
@@ -39,6 +40,15 @@ STEPPER_BUZZ STEPPER=extruder
 4. Vypočítejte rotační_vzdálenost jako:
    rotation_distance = <předchozí_rotační_vzdálenost> * <skutečná_vzdálenost_vysunutí> /    <požadovaná_vzdálenost_vysunutí>
    Zaokrouhlete novou rotační_vzdálenost na tři desetinná místa.
+
+
+uprava behem tisku v modu M605 S2 / S3
+
+- (rotation_distance / extrude_flow)
+- (3.4972 / 0.9)   
+
+SET_EXTRUDER_ROTATION_DISTANCE EXTRUDER=extruder1  DISTANCE=3.886   =flow 90%
+   
   
 --------------------------------------------------
 
