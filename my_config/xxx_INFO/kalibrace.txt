@@ -20,7 +20,7 @@ STEPPER_BUZZ STEPPER=extruder
 
 1. Pomocí značky umístěte značku na vlákno přibližně 100 mm od vstupu do těla extrudéru.
    Poté pomocí digitálních posuvných měřítek změřte skutečnou vzdálenost této značky tak přesně, jak jen lze.
-   Poznamenejte si to jako <initial_mark_distance>.
+   Poznamenejte si to jako <počáteční_vzdálenost_značky>.
 
 2. Vytlačte 50 mm vlákna pomocí následující sekvence příkazů:
 
@@ -35,7 +35,8 @@ STEPPER_BUZZ STEPPER=extruder
    
 3. Pomocí digitálních posuvných měřítek změřte novou vzdálenost mezi tělem extrudéru a značkou na filamentu.
    Poznamenejte si to jako <následná_značka_vzdálenost>.
-   Poté vypočítejte: aktuální_vysunutí_vzdálenosti = <počáteční_vzdálenost_značky> - <následná_vzdálenost_značky>
+   Poté vypočítejte: skutečná_vzdálenost_vysunutí = <počáteční_vzdálenost_značky> - <následná_vzdálenost_značky>   
+                       
 
 4. Vypočítejte rotační_vzdálenost jako:
    rotation_distance = <předchozí_rotační_vzdálenost> * <skutečná_vzdálenost_vysunutí> /    <požadovaná_vzdálenost_vysunutí>
@@ -48,7 +49,13 @@ uprava behem tisku v modu M605 S2 / S3
 - (3.4972 / 0.9)   
 
 SET_EXTRUDER_ROTATION_DISTANCE EXTRUDER=extruder1  DISTANCE=3.886   =flow 90%
-   
+
+---
+
+SET_EXTRUDER_ROTATION_DISTANCE EXTRUDER=extruder   DISTANCE=3.467
+SET_EXTRUDER_ROTATION_DISTANCE EXTRUDER=extruder1  DISTANCE=3.432
+
+
   
 --------------------------------------------------
 
