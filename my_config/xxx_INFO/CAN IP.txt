@@ -1,0 +1,48 @@
+============================ statická IP adresa =============================
+'zjistění nastavení'
+
+ifconfig
+
+'nastavení statické IP adersy pro RPi'
+
+sudo nano /etc/dhcpcd.conf
+
+-- zadat ---
+
+interface eth0
+static ip_address=192.168.0.4/24
+static routers=192.168.0.1
+#static domain_name_servers=192.168.0.1
+
+
+interface wlan0
+static ip_address=192.168.0.33/24
+static routers=192.168.0.1
+static domain_name_servers=192.168.0.1
+
+
+--- CTRL+X  Y  ENTER ---
+
+sudo reboot
+
+'zjistení nastavení IP adresy'
+
+hostname -I
+
+=========================== nastavení CAN bus ======================================
+ 
+1)  HSS:
+    sudo nano /etc/network/interfaces.d/can0
+  
+  add to file:
+  
+  allow-hotplug can0
+  iface can0 can static
+    bitrate 1000000
+    up ifconfig $IFACE txqueuelen 128
+
+  
+  CTRL+X , YES 
+  
+ 2) HSS:
+    sudo reboot now   
